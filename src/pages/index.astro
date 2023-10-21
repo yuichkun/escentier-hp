@@ -5,6 +5,7 @@ import Card from "../components/Card.astro";
 
 <script>
   import { createScene } from "../scripts/webgl";
+  import { startLoading } from "../scripts/loading";
   const width = window.innerWidth;
   const height = window.innerHeight;
 
@@ -14,11 +15,17 @@ import Card from "../components/Card.astro";
   });
 
   const container = document.querySelector("#bg-canvas-container");
+  const loadingContainer = document.querySelector("#loading");
+  const { stop } = startLoading({
+    container: loadingContainer as HTMLDivElement,
+    path: "loading-2.json",
+  });
 
   container!.appendChild(canvas);
   animate();
 </script>
 <Layout title="Escentier">
+  <div id="loading" class="bg-white w-screen h-screen"></div>
   <div class="fixed -z-50" id="bg-canvas-container"></div>
   <main class="">
     <svg
