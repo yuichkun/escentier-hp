@@ -1,6 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.svelte";
+import { contentfulClient } from "../scripts/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { EntryFieldTypes } from "contentful";
+
+interface Works {
+  contentTypeId: "works";
+  fields: {
+    title: EntryFieldTypes.Text;
+    content: EntryFieldTypes.RichText;
+    preview: any;
+  };
+}
+
+const entries = (
+  await contentfulClient.getEntries<Works>({
+    content_type: "works",
+  })
+).items.map((item) => {
+  console.log(item);
+  return item;
+});
+console.log("entries", JSON.stringify(entries, null, 2));
 ---
 
 <script>
@@ -87,6 +109,15 @@ import Card from "../components/Card.svelte";
     </ul>
     <button>GO</button>
   </main>
+  {
+    entries.map((item) => (
+      <section class="text-white">
+        <h2>{item.fields.title}</h2>
+        <article set:html={documentToHtmlString(item.fields.content)} />
+        <img src={`http:${(item as any).fields.preview.fields.file.url}`} />
+      </section>
+    ))
+  }
 </Layout>
 
 <style>
