@@ -4,71 +4,23 @@ import Card from "../components/Card.astro";
 ---
 
 <script>
-  const button = document.querySelector("button");
-  const page = document.querySelector("html");
-  import * as THREE from "three";
+  import { createScene } from "../scripts/webgl";
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
-  if (!(button && page)) {
-    throw new Error("page does not have neccessary elements");
-  }
-
-  import toCanvas from "html2canvas";
-  button?.addEventListener("click", () => {
-    toCanvas(page as HTMLElement)
-      .then((canvas) => {
-        console.log(canvas);
-        const dataURL = canvas.toDataURL();
-        console.log(dataURL);
-        let loader = new THREE.TextureLoader();
-        let texture = loader.load(dataURL);
-        console.log(texture);
-
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.OrthographicCamera(
-          canvas.width / -2, // left
-          canvas.width / 2, // right
-          canvas.height / 2, // top
-          canvas.height / -2, // bottom
-          1, // near
-          1000 // far
-        );
-
-        // Set the camera position so it's looking at the scene from directly above
-        camera.position.z = 1;
-
-        // Ensure the camera's world matrix is updated
-        camera.updateProjectionMatrix();
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(width, height);
-
-        const geometry = new THREE.PlaneGeometry(
-          window.innerWidth,
-          window.innerHeight
-        );
-        const material = new THREE.MeshBasicMaterial({ map: texture });
-        const plane = new THREE.Mesh(geometry, material);
-        scene.add(plane);
-
-        camera.position.z = 50;
-
-        document.body.appendChild(renderer.domElement);
-
-        function animate() {
-          requestAnimationFrame(animate);
-          renderer.render(scene, camera);
-        }
-        animate();
-      })
-      .catch(function (error: Error) {
-        console.error("oops, something went wrong!", error);
-      });
+  const { animate, canvas } = createScene({
+    width,
+    height,
   });
+
+  const container = document.querySelector("#bg-canvas-container");
+
+  container!.appendChild(canvas);
+  animate();
 </script>
 <Layout title="Escentier">
-  <main>
+  <div class="fixed -z-50" id="bg-canvas-container"></div>
+  <main class="">
     <svg
       class="astro-a"
       width="495"
