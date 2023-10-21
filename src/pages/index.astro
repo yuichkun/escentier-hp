@@ -1,8 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
 ---
 
+<script>
+const button = document.querySelector('button')
+const page  = document.querySelector('html')
+const canvas = document.querySelector('canvas')
+
+if(! (button && page && canvas)) {
+	throw new Error('page does not have neccessary elements')
+}
+
+import toCanvas from 'html2canvas'
+button?.addEventListener('click', () => {
+	toCanvas(page as HTMLElement, {
+		// canvas
+	})
+    .then((_canvas) => {
+			console.log(_canvas)
+			// _canvas.style.display = 'fixed'
+			_canvas.classList.add('fixed')
+			_canvas.classList.add('top-0')
+			document.body.appendChild(_canvas);
+    })
+    .catch(function (error: Error) {
+        console.error('oops, something went wrong!', error);
+    });
+})
+
+</script>
 <Layout title="Welcome to Astro.">
 	<main>
 		<svg
@@ -53,6 +81,45 @@ import Card from '../components/Card.astro';
 				href="https://astro.build/themes/"
 				title="Themes"
 				body="Explore a galaxy of community-built starter themes."
+			/>
+			<Card
+				href="https://astro.build/chat/"
+				title="Community"
+				body="Come say hi to our amazing Discord community. ❤️"
+			/>
+		</ul>
+		<button
+		>GO</button>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="https://docs.astro.build/"
+				title="Documentation"
+				body="Learn how Astro works and explore the official API docs."
+			/>
+			<Card
+				href="https://astro.build/integrations/"
+				title="Integrations"
+				body="Supercharge your project with new frameworks and libraries."
+			/>
+			<Card
+				href="https://astro.build/themes/"
+				title="Themes"
+				body="Explore a galaxy of community-built starter themes."
+			/>
+			<Card
+				href="https://astro.build/chat/"
+				title="Community"
+				body="Come say hi to our amazing Discord community. ❤️"
+			/>
+			<Card
+				href="https://astro.build/chat/"
+				title="Community"
+				body="Come say hi to our amazing Discord community. ❤️"
+			/>
+			<Card
+				href="https://astro.build/chat/"
+				title="Community"
+				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 			<Card
 				href="https://astro.build/chat/"
