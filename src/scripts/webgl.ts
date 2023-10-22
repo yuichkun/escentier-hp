@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import vertexShader from "../shaders/sphere.vert";
 import fragmentShader from "../shaders/sphere.frag";
+import gui from "./gui";
 
 function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -39,10 +40,10 @@ export function createScene({
     controls = new OrbitControls(camera, canvas);
     controls.autoRotate = true;
     controls.update();
-    const axesHelper = new THREE.AxesHelper(5);  // The argument defines the size of the helper
-
-   // Add the axes helper to your scene
+    const axesHelper = new THREE.AxesHelper(5); // The argument defines the size of the helper
     scene.add(axesHelper);
+
+    gui.show();
   }
 
   function animate() {
@@ -73,7 +74,7 @@ export function createObj(scene: THREE.Scene) {
 
   const material = new THREE.ShaderMaterial({
     uniforms: {
-      time: { value: 1.0 },
+      uTime: { value: 0 },
       resolution: { value: new THREE.Vector2() },
     },
     vertexShader,
@@ -82,6 +83,12 @@ export function createObj(scene: THREE.Scene) {
 
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    material.uniforms.uTime.value++;
+  }
+  animate();
 
   return mesh;
 }
