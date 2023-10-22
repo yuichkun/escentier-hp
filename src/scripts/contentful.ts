@@ -23,8 +23,10 @@ export const getWorks = async () => {
       content_type: "works",
     })
   ).items.map((item) => {
-    // const entry = entries[0].fields.preview.fields;
-    return (item.fields.preview as any).fields;
+    return {
+      ...(item.fields.preview as any).fields,
+      name: (item.fields as any).name,
+    };
   });
 
   return entries;

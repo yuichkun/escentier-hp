@@ -17,13 +17,16 @@ const { works } = Astro.props;
     loadVideoTexture,
   } from "../scripts/webgl";
 
+  const BG_VIDEO_NAME = "Miko-Ika";
+
   async function main() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
     const container = document.querySelector("#bg-canvas-container");
     const entries = JSON.parse((container as HTMLElement).dataset.works!);
-    const filePath = entries[0].file.url;
+    const bgVideo = entries.find((e: any) => e.name === BG_VIDEO_NAME);
+    const filePath = bgVideo.file.url;
     const imageURL = `http:${filePath}`;
 
     const { animate, canvas, scene, camera } = createScene({
