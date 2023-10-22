@@ -1,4 +1,7 @@
 {
   "editor.formatOnSave": true,
-  "glsllint.glslifyAutoOpenOnError": false
+  "glsllint.glslifyAutoOpenOnError": false,
+  "cSpell.words": [
+    "gsap"
+  ]
 }

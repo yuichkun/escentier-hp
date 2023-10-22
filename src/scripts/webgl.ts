@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import vertexShader from "../shaders/sphere.vert";
 import fragmentShader from "../shaders/sphere.frag";
+import { gsap } from "gsap";
 import gui, {
   autoRotateController,
   axisController,
@@ -120,8 +121,11 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
 
   window.addEventListener("scroll", () => {
     const position = getScrollPosition();
-    material.uniforms.uScrollPos.value = position;
-    const scale = position * 3 + 1;
+    const easedPosition = gsap.parseEase("circ.out")(position);
+
+    material.uniforms.uScrollPos.value = easedPosition;
+
+    const scale = easedPosition * 2 + 1;
     mesh.scale.set(scale, scale, scale);
   });
 
