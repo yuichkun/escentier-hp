@@ -37,6 +37,7 @@ export function createScene({
   let controls: OrbitControls | null = null;
   if (debug) {
     controls = new OrbitControls(camera, canvas);
+    controls.autoRotate = true;
     controls.update();
     const axesHelper = new THREE.AxesHelper(5);  // The argument defines the size of the helper
 
