@@ -7,19 +7,30 @@ const works = await getWorks();
 ---
 
 <Layout title="Escentier">
-  <main class="min-h-screen"></main>
+  <main
+    class="mb-4 flex min-h-screen items-end justify-end text-7xl font-bold text-white"
+  >
+    <h2 id="essence">Uncover the essence,</h2>
+  </main>
   <Background works={works} />
   <Gallery client:only />
 </Layout>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-</style>
+<script>
+  const h2 = document.querySelector("h2#essence") as HTMLElement;
+  h2.style.opacity = "0";
+  const vh = window.innerHeight;
+
+  window.addEventListener("scroll", () => {
+    let scrollY = window.scrollY;
+    let opacity;
+
+    if (scrollY <= vh / 2) {
+      opacity = scrollY / (vh / 2);
+    } else {
+      opacity = 1 - (scrollY - vh / 2) / (vh / 2);
+    }
+
+    h2.style.opacity = opacity.toString();
+  });
+</script>
