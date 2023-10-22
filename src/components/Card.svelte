@@ -1,5 +1,4 @@
 <script lang="ts">
-  console.log(document.querySelectorAll("button"));
   export let title: string;
   export let body: string;
 

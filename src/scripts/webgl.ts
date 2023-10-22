@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { purple1 } from "../constants/colors";
+import vertexShader from "../shaders/sphere.vs";
+import fragmentShader from "../shaders/sphere.fs";
 
 function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -65,7 +66,15 @@ export function createObj(scene: THREE.Scene) {
     heightSegments
   );
 
-  const material = new THREE.MeshBasicMaterial({ color: purple1 });
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      time: { value: 1.0 },
+      resolution: { value: new THREE.Vector2() },
+    },
+    vertexShader,
+    fragmentShader,
+  });
+
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
