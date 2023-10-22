@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import vertexShader from "../shaders/sphere.vert";
 import fragmentShader from "../shaders/sphere.frag";
-import gui, { axisController } from "./gui";
+import gui, { autoRotateController, axisController } from "./gui";
 
 export function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -38,8 +38,11 @@ export function createScene({
   let controls: OrbitControls | null = null;
   if (debug) {
     controls = new OrbitControls(camera, canvas);
-    controls.autoRotate = true;
     controls.update();
+    autoRotateController.onChange((value: boolean) => {
+      controls!.autoRotate = value;
+    });
+
     const axesHelper = new THREE.AxesHelper(5); // The argument defines the size of the helper
     scene.add(axesHelper);
 
