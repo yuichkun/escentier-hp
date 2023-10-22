@@ -1,4 +1,6 @@
 ---
+import { loadVideoTexture } from "../scripts/webgl";
+
 const { works } = Astro.props;
 ---
 
@@ -10,7 +12,12 @@ const { works } = Astro.props;
 </div>
 
 <script>
-  import { createScene, createObj, loadTexture } from "../scripts/webgl";
+  import {
+    createScene,
+    createObj,
+    loadTexture,
+    loadVideoTexture,
+  } from "../scripts/webgl";
 
   async function main() {
     const width = window.innerWidth;
@@ -26,8 +33,8 @@ const { works } = Astro.props;
       height,
       debug: true,
     });
-    const texture = loadTexture(imageURL);
-    createObj(scene, texture);
+    const videoTexture = loadVideoTexture(imageURL);
+    createObj(scene, videoTexture);
 
     container!.appendChild(canvas);
     animate();

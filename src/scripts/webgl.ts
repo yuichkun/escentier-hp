@@ -6,9 +6,25 @@ import gui, {
   autoRotateController,
   axisController,
   heightNoiseAmpController,
+  heightNoiseGrainController,
   store,
 } from "./gui";
 
+export function loadVideoTexture(src: string) {
+  // Create a video element, set its source, and start playing
+  const video = document.createElement("video");
+  video.src = src;
+  video.crossOrigin = "anonymous";
+  video.autoplay = true;
+  video.playsInline = true;
+  video.loop = true; // Optional: make video loop
+  video.muted = true; // Optional: mute video
+  video.play();
+
+  // Create a texture from the video element
+  const videoTexture = new THREE.VideoTexture(video);
+  return videoTexture;
+}
 export function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
   const texture = loader.load(dataURL);
@@ -91,6 +107,9 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
       uHeightNoiseAmp: {
         value: store.heightNoiseAmp,
       },
+      uHeightNoiseGrain: {
+        value: store.heightNoiseGrain,
+      },
       resolution: { value: new THREE.Vector2() },
     },
     vertexShader,
@@ -99,6 +118,9 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
 
   heightNoiseAmpController.onChange((v: number) => {
     material.uniforms.uHeightNoiseAmp.value = v;
+  });
+  heightNoiseGrainController.onChange((v: number) => {
+    material.uniforms.uHeightNoiseGrain.value = v;
   });
 
   const mesh = new THREE.Mesh(geometry, material);

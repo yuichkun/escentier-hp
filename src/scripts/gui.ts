@@ -5,6 +5,7 @@ export const store = {
   hideAxis: false,
   autoRotate: false,
   heightNoiseAmp: 0.3,
+  heightNoiseGrain: 0.4,
 };
 
 export const axisController = gui.add(store, "hideAxis"); // Checkbox
@@ -15,7 +16,14 @@ export const heightNoiseAmpController = gui.add(
   0,
   4,
   0.01
-); // Checkbox
+);
+export const heightNoiseGrainController = gui.add(
+  store,
+  "heightNoiseGrain",
+  0,
+  4,
+  0.01
+);
 
 gui.hide();
 export default gui;
