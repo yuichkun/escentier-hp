@@ -38,18 +38,18 @@ console.log("entries", JSON.stringify(entries, null, 2));
 
   const container = document.querySelector("#bg-canvas-container");
   const loadingContainer = document.querySelector("#loading");
-  const { stop } = startLoading({
-    container: loadingContainer as HTMLDivElement,
-    path: "loading-2.json",
-  });
+  // const { stop } = startLoading({
+  //   container: loadingContainer as HTMLDivElement,
+  //   path: "loading-2.json",
+  // });
 
   container!.appendChild(canvas);
   animate();
 </script>
 <Layout title="Escentier">
-  <div id="loading" class="bg-white w-screen h-screen"></div>
+  <!-- <div id="loading" class="bg-white w-screen h-screen"></div> -->
   <div class="fixed -z-50" id="bg-canvas-container"></div>
-  <main class="">
+  <main class="min-h-screen">
     <svg
       class="astro-a"
       width="495"

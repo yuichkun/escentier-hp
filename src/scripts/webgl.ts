@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -9,38 +10,40 @@ function loadTexture(dataURL: string) {
 type CreateSceneOptions = {
   width: number;
   height: number;
+  debug?: boolean;
 };
-export function createScene({ width, height }: CreateSceneOptions) {
+export function createScene({
+  width,
+  height,
+  debug = false,
+}: CreateSceneOptions) {
   const scene = new THREE.Scene();
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
   const canvas = renderer.domElement;
 
-  const camera = new THREE.OrthographicCamera(
-    canvas.width / -2, // left
-    canvas.width / 2, // right
-    canvas.height / 2, // top
-    canvas.height / -2, // bottom
-    1, // near
-    1000 // far
+  const camera = new THREE.PerspectiveCamera(
+    45,
+    window.innerWidth / window.innerHeight,
+    1,
+    10000
   );
   // Set the camera position so it's looking at the scene from directly above
   camera.position.z = 1;
   camera.updateProjectionMatrix();
 
-  const geometry = new THREE.PlaneGeometry(
-    window.innerWidth / 2,
-    window.innerHeight - 1
-  );
-
-  const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-  // const material = new THREE.MeshBasicMaterial({ map: texture });
-  const plane = new THREE.Mesh(geometry, material);
-  scene.add(plane);
+  let controls: OrbitControls | null = null;
+  if (debug) {
+    controls = new OrbitControls(camera, canvas);
+    controls.update();
+  }
 
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
+    if (controls) {
+      controls.update();
+    }
   }
   return {
     animate,
@@ -48,4 +51,15 @@ export function createScene({ width, height }: CreateSceneOptions) {
     scene,
     canvas: renderer.domElement,
   };
+}
+
+export function createObj(scene: THREE.Scene) {
+  const geometry = new THREE.PlaneGeometry(
+    window.innerWidth / 5000,
+    window.innerHeight / 5000
+  );
+
+  const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  const plane = new THREE.Mesh(geometry, material);
+  scene.add(plane);
 }
