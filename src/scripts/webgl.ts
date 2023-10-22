@@ -9,6 +9,7 @@ import gui, {
   heightNoiseGrainController,
   store,
 } from "./gui";
+import { getScrollPosition } from "./useScroll";
 
 export function loadVideoTexture(src: string) {
   // Create a video element, set its source, and start playing
@@ -104,6 +105,7 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
     uniforms: {
       uTexture: { value: texture },
       uTime: { value: 0 },
+      uScrollPos: { value: getScrollPosition() },
       uHeightNoiseAmp: {
         value: store.heightNoiseAmp,
       },
@@ -114,6 +116,10 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
     },
     vertexShader,
     fragmentShader,
+  });
+
+  window.addEventListener("scroll", () => {
+    material.uniforms.uScrollPos.value = getScrollPosition();
   });
 
   heightNoiseAmpController.onChange((v: number) => {

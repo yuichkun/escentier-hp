@@ -4,9 +4,10 @@ varying vec2 vUv;
 // uniforms
 uniform float uHeightNoiseGrain;
 uniform float uHeightNoiseAmp;
+uniform float uScrollPos;
 
 void main() {
     vUv = uv;
-    vec3 pos = position + normal * noise(vec3(position + normal) * uHeightNoiseGrain) * uHeightNoiseAmp;
+    vec3 pos = position + normal * noise(vec3(position + normal) * uHeightNoiseGrain) * uHeightNoiseAmp * uScrollPos;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
 }

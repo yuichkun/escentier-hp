@@ -1,11 +1,9 @@
 ---
-import { loadVideoTexture } from "../scripts/webgl";
-
 const { works } = Astro.props;
 ---
 
 <div
-  class="fixed top-0"
+  class="fixed top-0 -z-10"
   id="bg-canvas-container"
   data-works={JSON.stringify(works)}
 >
