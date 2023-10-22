@@ -63,7 +63,7 @@ export function createScene({
     45,
     window.innerWidth / window.innerHeight,
     1,
-    10000,
+    1000000,
   );
   camera.position.z = 5;
 
