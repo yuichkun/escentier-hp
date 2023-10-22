@@ -11,6 +11,6 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   vite: {
-    plugins: [glsl(), glslify()],
+    plugins: [glslify()],
   },
 });

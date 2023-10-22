@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import vertexShader from "../shaders/sphere.vs";
-import fragmentShader from "../shaders/sphere.fs";
+import vertexShader from "../shaders/sphere.vert";
+import fragmentShader from "../shaders/sphere.frag";
 
 function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -38,6 +38,10 @@ export function createScene({
   if (debug) {
     controls = new OrbitControls(camera, canvas);
     controls.update();
+    const axesHelper = new THREE.AxesHelper(5);  // The argument defines the size of the helper
+
+   // Add the axes helper to your scene
+    scene.add(axesHelper);
   }
 
   function animate() {
