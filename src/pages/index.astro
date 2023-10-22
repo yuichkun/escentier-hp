@@ -10,7 +10,7 @@ const works = await getWorks();
   <main
     class="mb-4 flex min-h-screen items-end justify-end text-7xl font-bold text-white"
   >
-    <h2 id="essence">Uncover the essence,</h2>
+    <h2 id="essence" class="fixed top-1/2 z-50">Uncover the essence,</h2>
   </main>
   <Background works={works} />
   <Gallery client:only />
@@ -34,3 +34,9 @@ const works = await getWorks();
     h2.style.opacity = opacity.toString();
   });
 </script>
+
+<style>
+  h2 {
+    mix-blend-mode: overlay;
+  }
+</style>
