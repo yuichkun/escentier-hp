@@ -9,7 +9,7 @@ const works = await getWorks();
 <Layout title="Escentier">
   <main class="min-h-screen"></main>
   <Background works={works} />
-  <Gallery />
+  <Gallery client:only />
 </Layout>
 
 <style>
