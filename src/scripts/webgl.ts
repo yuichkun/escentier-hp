@@ -4,7 +4,7 @@ import vertexShader from "../shaders/sphere.vert";
 import fragmentShader from "../shaders/sphere.frag";
 import gui from "./gui";
 
-function loadTexture(dataURL: string) {
+export function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
   const texture = loader.load(dataURL);
   return texture;
@@ -62,7 +62,7 @@ export function createScene({
   };
 }
 
-export function createObj(scene: THREE.Scene) {
+export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
   const radius = 1;
   const widthSegments = 32;
   const heightSegments = 32;
@@ -74,6 +74,7 @@ export function createObj(scene: THREE.Scene) {
 
   const material = new THREE.ShaderMaterial({
     uniforms: {
+      uTexture: { value: texture },
       uTime: { value: 0 },
       resolution: { value: new THREE.Vector2() },
     },

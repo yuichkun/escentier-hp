@@ -1,0 +1,36 @@
+---
+const { works } = Astro.props;
+---
+
+<div
+  class="fixed top-0"
+  id="bg-canvas-container"
+  data-works={JSON.stringify(works)}
+>
+</div>
+
+<script>
+  import { createScene, createObj, loadTexture } from "../scripts/webgl";
+
+  async function main() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const container = document.querySelector("#bg-canvas-container");
+    const entries = JSON.parse((container as HTMLElement).dataset.works!);
+    const filePath = entries[0].file.url;
+    const imageURL = `http:${filePath}`;
+
+    const { animate, canvas, scene, camera } = createScene({
+      width,
+      height,
+      debug: true,
+    });
+    const texture = loadTexture(imageURL);
+    createObj(scene, texture);
+
+    container!.appendChild(canvas);
+    animate();
+  }
+  main();
+</script>
