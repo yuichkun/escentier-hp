@@ -3,5 +3,8 @@
   "glsllint.glslifyAutoOpenOnError": false,
   "cSpell.words": [
     "gsap"
-  ]
+  ],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
 }
