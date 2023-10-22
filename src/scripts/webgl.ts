@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import vertexShader from "../shaders/sphere.vert";
 import fragmentShader from "../shaders/sphere.frag";
-import gui from "./gui";
+import gui, { axisController } from "./gui";
 
 export function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -42,6 +42,10 @@ export function createScene({
     controls.update();
     const axesHelper = new THREE.AxesHelper(5); // The argument defines the size of the helper
     scene.add(axesHelper);
+
+    axisController.onChange((hide: boolean) => {
+      axesHelper.visible = !hide;
+    });
 
     gui.show();
   }

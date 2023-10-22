@@ -1,22 +1,24 @@
 import GUI from "lil-gui";
 const gui = new GUI();
-const myObject = {
+
+const store = {
   myBoolean: true,
   myString: "lil-gui",
   myNumber: 1,
+  hideAxis: false,
 };
 
-gui.add(myObject, "myBoolean"); // Checkbox
-gui.add(myObject, "myString"); // Text Field
-gui.add(myObject, "myNumber"); // Number Field
+export const axisController = gui.add(store, "hideAxis"); // Checkbox
+gui.add(store, "myString"); // Text Field
+gui.add(store, "myNumber"); // Number Field
 
 // Add sliders to number fields by passing min and max
-gui.add(myObject, "myNumber", 0, 1);
-gui.add(myObject, "myNumber", 0, 100, 2); // snap to even numbers
+gui.add(store, "myNumber", 0, 1);
+gui.add(store, "myNumber", 0, 100, 2); // snap to even numbers
 
 // Create dropdowns by passing an array or object of named values
-gui.add(myObject, "myNumber", [0, 1, 2]);
-gui.add(myObject, "myNumber", { Label1: 0, Label2: 1, Label3: 2 });
+gui.add(store, "myNumber", [0, 1, 2]);
+gui.add(store, "myNumber", { Label1: 0, Label2: 1, Label3: 2 });
 
 // Chainable methods
 
