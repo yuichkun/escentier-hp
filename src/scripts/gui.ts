@@ -4,8 +4,8 @@ const gui = new GUI();
 export const store = {
   hideAxis: false,
   autoRotate: false,
-  heightNoiseAmp: 0.3,
-  heightNoiseGrain: 3.4,
+  heightNoiseAmp: 1.35,
+  heightNoiseGrain: 0.26,
 };
 
 export const axisController = gui.add(store, "hideAxis"); // Checkbox
@@ -15,14 +15,14 @@ export const heightNoiseAmpController = gui.add(
   "heightNoiseAmp",
   0,
   4,
-  0.01
+  0.01,
 );
 export const heightNoiseGrainController = gui.add(
   store,
   "heightNoiseGrain",
   0,
   4,
-  0.01
+  0.01,
 );
 
 gui.hide();
