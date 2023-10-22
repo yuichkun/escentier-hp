@@ -48,11 +48,22 @@ export function createScene({
   renderer.setSize(width, height);
   const canvas = renderer.domElement;
 
+  window.addEventListener(
+    "resize",
+    () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    },
+    false,
+  );
+
   const camera = new THREE.PerspectiveCamera(
     45,
     window.innerWidth / window.innerHeight,
     1,
-    10000
+    10000,
   );
   camera.position.z = 5;
 
@@ -99,7 +110,7 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
   const geometry = new THREE.SphereGeometry(
     radius,
     widthSegments,
-    heightSegments
+    heightSegments,
   );
 
   const material = new THREE.ShaderMaterial({
