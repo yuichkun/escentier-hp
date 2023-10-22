@@ -2,7 +2,12 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import vertexShader from "../shaders/sphere.vert";
 import fragmentShader from "../shaders/sphere.frag";
-import gui, { autoRotateController, axisController } from "./gui";
+import gui, {
+  autoRotateController,
+  axisController,
+  heightNoiseAmpController,
+  store,
+} from "./gui";
 
 export function loadTexture(dataURL: string) {
   const loader = new THREE.TextureLoader();
@@ -83,10 +88,17 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
     uniforms: {
       uTexture: { value: texture },
       uTime: { value: 0 },
+      uHeightNoiseAmp: {
+        value: store.heightNoiseAmp,
+      },
       resolution: { value: new THREE.Vector2() },
     },
     vertexShader,
     fragmentShader,
+  });
+
+  heightNoiseAmpController.onChange((v: number) => {
+    material.uniforms.uHeightNoiseAmp.value = v;
   });
 
   const mesh = new THREE.Mesh(geometry, material);
