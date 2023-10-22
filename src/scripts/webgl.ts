@@ -119,7 +119,10 @@ export function createObj(scene: THREE.Scene, texture: THREE.Texture) {
   });
 
   window.addEventListener("scroll", () => {
-    material.uniforms.uScrollPos.value = getScrollPosition();
+    const position = getScrollPosition();
+    material.uniforms.uScrollPos.value = position;
+    const scale = position * 3 + 1;
+    mesh.scale.set(scale, scale, scale);
   });
 
   heightNoiseAmpController.onChange((v: number) => {
