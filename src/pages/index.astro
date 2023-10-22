@@ -1,5 +1,6 @@
 ---
 import Background from "../components/Background.astro";
+import Gallery from "../components/Gallery.svelte";
 import Layout from "../layouts/Layout.astro";
 import { getWorks } from "../scripts/contentful";
 const works = await getWorks();
@@ -8,7 +9,7 @@ const works = await getWorks();
 <Layout title="Escentier">
   <main class="min-h-screen"></main>
   <Background works={works} />
-  <div class="section"></div>
+  <Gallery />
 </Layout>
 
 <style>
@@ -20,9 +21,5 @@ const works = await getWorks();
     color: white;
     font-size: 20px;
     line-height: 1.6;
-  }
-  .section {
-    height: 200vh;
-    background-color: rgba(var(--blue), 0.2);
   }
 </style>
