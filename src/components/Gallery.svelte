@@ -14,7 +14,9 @@
 
 <style>
   .section {
-    height: 200vh;
-    background-color: rgba(var(--purple3), var(--alpha));
+    min-height: 100vh;
+    height: 300vh;
+    background-color: rgb(var(--purple3));
+    opacity: var(--alpha);
   }
 </style>
