@@ -23,18 +23,56 @@
   }
 </script>
 
-<div class="column">
-  {#each randomizeOrder(videos) as url}
-    <div class="video-wrapper">
-      <video src={url} autoplay playsinline muted loop />
-    </div>
-  {/each}
+<div class="scroll-parent">
+  <div class="scroll-element primary">
+    {#each randomizeOrder(videos) as url}
+      <div class="video-wrapper">
+        <video src={url} autoplay playsinline muted loop />
+      </div>
+    {/each}
+  </div>
+  <div class="scroll-element secondary">
+    {#each randomizeOrder(videos) as url}
+      <div class="video-wrapper">
+        <video src={url} autoplay playsinline muted loop />
+      </div>
+    {/each}
+  </div>
 </div>
 
 <style>
-  .column {
-    width: 30%;
+  .scroll-parent {
+    position: relative;
+    height: 100%;
+    width: 90%;
     filter: saturate(1.7) contrast(0.8);
+  }
+  .scroll-element {
+    position: absolute;
+    width: inherit;
+    top: 0%;
+  }
+  .primary {
+    animation: primary 3s linear infinite;
+  }
+  .secondary {
+    animation: secondary 3s linear infinite;
+  }
+  @keyframes primary {
+    from {
+      top: 0%;
+    }
+    to {
+      top: -100%;
+    }
+  }
+  @keyframes secondary {
+    from {
+      top: 100%;
+    }
+    to {
+      top: 0%;
+    }
   }
   .video-wrapper {
     overflow: hidden;

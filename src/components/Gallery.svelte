@@ -40,6 +40,7 @@
   .column-wrapper {
     display: flex;
     justify-content: space-around;
+    height: 100%;
     transform: scale(2) rotate(45deg);
   }
 </style>
