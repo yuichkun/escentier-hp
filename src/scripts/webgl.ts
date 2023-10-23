@@ -21,7 +21,14 @@ export function loadVideoTexture(src: string) {
   video.playsInline = true;
   video.loop = true; // Optional: make video loop
   video.muted = true; // Optional: mute video
-  video.play();
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (isSafari) {
+    window.addEventListener("click", () => {
+      video.play();
+    });
+  } else {
+    video.play();
+  }
 
   // Create a texture from the video element
   const videoTexture = new THREE.VideoTexture(video);
