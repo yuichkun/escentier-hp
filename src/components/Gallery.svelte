@@ -25,9 +25,9 @@
 <div class="section" style={cssVarStyles}>
   <div class="column-wrapper">
     <VideoColumn {works} />
+    <VideoColumn {works} isOpposite />
     <VideoColumn {works} />
-    <VideoColumn {works} />
-    <VideoColumn {works} />
+    <VideoColumn {works} isOpposite />
   </div>
 </div>
 

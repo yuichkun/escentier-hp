@@ -9,6 +9,7 @@
 
   export let works: Work[];
   const videos = works.map((w) => `https:${w.file.url}`);
+  export let isOpposite = false;
 
   function randomizeOrder<T>(array: T[]): T[] {
     const shuffledArray = array.slice(); // Create a copy of the original array
@@ -21,7 +22,7 @@
     }
     return shuffledArray;
   }
-  const speed = Math.random() * 5 + 6;
+  const speed = Math.random() * 5 + 8;
 
   const randomizedVideos = randomizeOrder(videos);
   let videoList = [
@@ -31,17 +32,19 @@
   ];
 
   $: cssVarStyles = `--speed:${speed}s`;
+
+  const direction = isOpposite ? "normal" : "reverse";
 </script>
 
 <div class="scroll-parent" style={cssVarStyles}>
-  <div class="scroll-element primary">
+  <div class="scroll-element primary" style="animation-direction:{direction}">
     {#each videoList as url}
       <div class="video-wrapper">
         <video src={url} autoplay playsinline muted loop />
       </div>
     {/each}
   </div>
-  <div class="scroll-element secondary">
+  <div class="scroll-element secondary" style="animation-direction:{direction}">
     {#each videoList as url}
       <div class="video-wrapper">
         <video src={url} autoplay playsinline muted loop />
