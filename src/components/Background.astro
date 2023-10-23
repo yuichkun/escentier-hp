@@ -32,7 +32,7 @@ const { works } = Astro.props;
     const { animate, canvas, scene, camera } = createScene({
       width,
       height,
-      debug: true,
+      debug: false,
     });
     const videoTexture = loadVideoTexture(imageURL);
     createObj(scene, videoTexture);

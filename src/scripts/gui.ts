@@ -3,7 +3,7 @@ const gui = new GUI();
 
 export const store = {
   hideAxis: false,
-  autoRotate: false,
+  autoRotate: true,
   heightNoiseAmp: 1.35,
   heightNoiseGrain: 0.26,
 };

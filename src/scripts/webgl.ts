@@ -70,15 +70,16 @@ export function createScene({
   camera.updateProjectionMatrix();
 
   let controls: OrbitControls | null = null;
+  controls = new OrbitControls(camera, canvas);
+  controls.autoRotate = store.autoRotate;
+  controls.autoRotateSpeed = 2;
+  controls.update();
   if (debug) {
-    controls = new OrbitControls(camera, canvas);
-    controls.update();
+    const axesHelper = new THREE.AxesHelper(5); // The argument defines the size of the helper
+    scene.add(axesHelper);
     autoRotateController.onChange((value: boolean) => {
       controls!.autoRotate = value;
     });
-
-    const axesHelper = new THREE.AxesHelper(5); // The argument defines the size of the helper
-    scene.add(axesHelper);
 
     axisController.onChange((hide: boolean) => {
       axesHelper.visible = !hide;
