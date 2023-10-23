@@ -71,7 +71,7 @@
   }
   video {
     cursor: pointer;
-    transition: 1s ease-out;
+    transition: 0.5s ease-out;
   }
   video:hover {
     transform: scale(1.6);
