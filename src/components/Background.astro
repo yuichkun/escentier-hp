@@ -27,7 +27,7 @@ const { works } = Astro.props;
     const entries = JSON.parse((container as HTMLElement).dataset.works!);
     const bgVideo = entries.find((e: any) => e.name === BG_VIDEO_NAME);
     const filePath = bgVideo.file.url;
-    const imageURL = `http:${filePath}`;
+    const imageURL = `https:${filePath}`;
 
     const { animate, canvas, scene, camera } = createScene({
       width,
