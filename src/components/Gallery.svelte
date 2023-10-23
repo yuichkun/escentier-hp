@@ -26,17 +26,23 @@
   <div class="column-wrapper">
     <div class="column">
       {#each videos as url}
-        <video src={url} autoplay playsinline muted loop />
+        <div class="video-wrapper">
+          <video src={url} autoplay playsinline muted loop />
+        </div>
       {/each}
     </div>
     <div class="column">
       {#each videos as url}
-        <video src={url} autoplay playsinline muted loop />
+        <div class="video-wrapper">
+          <video src={url} autoplay playsinline muted loop />
+        </div>
       {/each}
     </div>
     <div class="column">
       {#each videos as url}
-        <video src={url} autoplay playsinline muted loop />
+        <div class="video-wrapper">
+          <video src={url} autoplay playsinline muted loop />
+        </div>
       {/each}
     </div>
   </div>
@@ -56,8 +62,18 @@
   }
   .column {
     width: 30%;
+    filter: saturate(1.7) contrast(0.8);
+    mix-blend-mode: saturation;
+  }
+
+  .video-wrapper {
+    overflow: hidden;
   }
   video {
-    /* mix-blend-mode: difference; */
+    cursor: pointer;
+    transition: 1s ease-out;
+  }
+  video:hover {
+    transform: scale(1.6);
   }
 </style>
