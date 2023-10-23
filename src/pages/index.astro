@@ -18,7 +18,7 @@ const works = await getWorks();
     </h2>
   </main>
   <Background works={works} />
-  <Gallery client:only />
+  <Gallery client:only works={works} />
 </Layout>
 
 <script>
