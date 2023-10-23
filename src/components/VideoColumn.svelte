@@ -23,19 +23,26 @@
   }
   const speed = Math.random() * 5 + 6;
 
+  const randomizedVideos = randomizeOrder(videos);
+  let videoList = [
+    ...randomizedVideos,
+    ...randomizedVideos,
+    ...randomizedVideos,
+  ];
+
   $: cssVarStyles = `--speed:${speed}s`;
 </script>
 
 <div class="scroll-parent" style={cssVarStyles}>
   <div class="scroll-element primary">
-    {#each randomizeOrder(videos) as url}
+    {#each videoList as url}
       <div class="video-wrapper">
         <video src={url} autoplay playsinline muted loop />
       </div>
     {/each}
   </div>
   <div class="scroll-element secondary">
-    {#each randomizeOrder(videos) as url}
+    {#each videoList as url}
       <div class="video-wrapper">
         <video src={url} autoplay playsinline muted loop />
       </div>
@@ -53,6 +60,7 @@
   .scroll-element {
     position: absolute;
     width: inherit;
+    height: 50%;
     top: 0%;
   }
   .primary {

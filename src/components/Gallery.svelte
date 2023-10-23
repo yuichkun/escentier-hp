@@ -27,6 +27,7 @@
     <VideoColumn {works} />
     <VideoColumn {works} />
     <VideoColumn {works} />
+    <VideoColumn {works} />
   </div>
 </div>
 
@@ -41,6 +42,6 @@
     display: flex;
     justify-content: space-around;
     height: 100%;
-    transform: scale(2) rotate(45deg);
+    transform: scale(1.8) rotate(45deg);
   }
 </style>
