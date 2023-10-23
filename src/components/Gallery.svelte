@@ -10,12 +10,13 @@
 
 <svelte:window on:scroll={onScroll} />
 
-<div class="section" style={cssVarStyles} />
+<div class="section" style={cssVarStyles}>
+  <canvas class="w-full h-full" />
+</div>
 
 <style>
   .section {
-    min-height: 100vh;
-    height: 300vh;
+    height: 100vh;
     background-color: rgb(var(--purple3));
     opacity: var(--alpha);
   }
