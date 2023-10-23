@@ -21,9 +21,12 @@
     }
     return shuffledArray;
   }
+  const speed = Math.random() * 5 + 6;
+
+  $: cssVarStyles = `--speed:${speed}s`;
 </script>
 
-<div class="scroll-parent">
+<div class="scroll-parent" style={cssVarStyles}>
   <div class="scroll-element primary">
     {#each randomizeOrder(videos) as url}
       <div class="video-wrapper">
@@ -53,10 +56,10 @@
     top: 0%;
   }
   .primary {
-    animation: primary 3s linear infinite;
+    animation: primary var(--speed) linear infinite;
   }
   .secondary {
-    animation: secondary 3s linear infinite;
+    animation: secondary var(--speed) linear infinite;
   }
   @keyframes primary {
     from {
