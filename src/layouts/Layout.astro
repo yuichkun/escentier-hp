@@ -14,11 +14,15 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:title" content="Escentier" />
+    <meta property="og:url" content="https://escentier.com/" />
+    <meta property="og:image" content="https://escentier.com/ogp.png" />
     <title>{title}</title>
   </head>
   <body>
     <header
-      class="fixed top-0 z-10 w-full cursor-pointer py-4 pl-6 text-center text-white md:text-left"
+      class="fixed top-0 z-10 hidden w-full cursor-pointer py-4 pl-6 text-center text-white md:text-left"
       onclick="
       scrollToTop()
       "
