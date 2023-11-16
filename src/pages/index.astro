@@ -18,8 +18,18 @@ const works = await getWorks();
     </h2>
   </main>
   <Background works={works} />
-  <div id="gallery-container" class="transition-all">
-    <Gallery client:only works={works} />
+  <div class="relative">
+    <div id="gallery-container" class="transition-all">
+      <Gallery client:only works={works} />
+    </div>
+    <div
+      class="absolute top-0 grid h-screen w-screen content-center justify-center text-center text-5xl text-white"
+    >
+      <span class="leading-snug">
+        東京から世界へ<br />
+         映像・音楽とクリエイティブテクノロジーの融合</span
+      >
+    </div>
   </div>
 </Layout>
 
