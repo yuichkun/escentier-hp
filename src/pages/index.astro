@@ -1,6 +1,7 @@
 ---
 import Background from "../components/Background.astro";
 import Gallery from "../components/Gallery.svelte";
+import Slogan from "../components/Slogan.svelte";
 import Layout from "../layouts/Layout.astro";
 import { getWorks } from "../scripts/contentful";
 const works = await getWorks();
@@ -23,12 +24,9 @@ const works = await getWorks();
       <Gallery client:only works={works} />
     </div>
     <div
-      class="absolute top-0 grid h-screen w-screen content-center justify-center text-center text-5xl text-white"
+      class="absolute top-0 grid h-screen w-screen content-center justify-center"
     >
-      <span class="leading-snug">
-        東京から世界へ<br />
-         映像・音楽とクリエイティブテクノロジーの融合</span
-      >
+      <Slogan />
     </div>
   </div>
 </Layout>
@@ -64,7 +62,7 @@ const works = await getWorks();
       h2.style.mixBlendMode = "initial";
       h2.style.top = "0";
       h2.style.letterSpacing = "4px";
-      galleryContainer.style.filter = "brightness(0.5)";
+      galleryContainer.style.filter = "brightness(0.3)";
     }
   });
 </script>
