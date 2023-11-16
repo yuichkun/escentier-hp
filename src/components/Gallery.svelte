@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import VideoColumn from "./VideoColumn.svelte";
+  import { fetchAndCacheVideo } from "../stores/videoCache";
 
   let alpha = 0.2;
 
@@ -18,6 +20,11 @@
   };
 
   $: cssVarStyles = `--alpha:${alpha}`;
+  onMount(() => {
+    works.forEach((work) => {
+      fetchAndCacheVideo(`https:${work.file.url}`).catch(console.error);
+    });
+  });
 </script>
 
 <svelte:window on:scroll={onScroll} />

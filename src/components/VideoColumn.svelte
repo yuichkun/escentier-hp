@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CachedVideo from "./CachedVideo.svelte";
   type Work = {
     title: string;
     name: string;
@@ -40,14 +41,14 @@
   <div class="scroll-element primary" style="animation-direction:{direction}">
     {#each videoList as url}
       <div class="video-wrapper">
-        <video src={url} autoplay playsinline muted loop />
+        <CachedVideo {url} />
       </div>
     {/each}
   </div>
   <div class="scroll-element secondary" style="animation-direction:{direction}">
     {#each videoList as url}
       <div class="video-wrapper">
-        <video src={url} autoplay playsinline muted loop />
+        <CachedVideo {url} />
       </div>
     {/each}
   </div>
