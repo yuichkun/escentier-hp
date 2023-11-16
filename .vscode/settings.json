@@ -3,7 +3,8 @@
   "glsllint.glslifyAutoOpenOnError": false,
   "cSpell.words": [
     "gsap",
-    "nanostores"
+    "nanostores",
+    "seiwa"
   ],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
