@@ -2,7 +2,8 @@
   "editor.formatOnSave": true,
   "glsllint.glslifyAutoOpenOnError": false,
   "cSpell.words": [
-    "gsap"
+    "gsap",
+    "nanostores"
   ],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
