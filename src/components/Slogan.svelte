@@ -1,12 +1,11 @@
-<span class="text-center md:text-5xl md:leading-loose text-white mincho">
-  <div>
-    <span class="font-bold"> 東京 </span>
-    から
-    <span class="font-bold"> 世界 </span>
-    へ
-  </div>
-  映像とクリエイティブテクノロジーの融合</span
->
+<div class="w-screen h-screen flex justify-center content-center">
+  <object
+    title="Escentier Slogan"
+    class="md:w-9/12 w-full h-full"
+    type="image/svg+xml"
+    data="/escentier-slogan.svg"
+  />
+</div>
 
 <style>
   .mincho {

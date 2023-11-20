@@ -1,0 +1,36 @@
+<svg id="escentier-slogan"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <defs>
+    <radialGradient id="escentier-slogan-s-text1-fill" cx="0" cy="0" r="0.567003" spreadMethod="pad" gradientUnits="objectBoundingBox" gradientTransform="matrix(0.999927 0.012067 -0.045976 3.809876 0.496087 0.52146)">
+      <stop id="escentier-slogan-s-text1-fill-0" offset="86.1007%" stop-color="#d5d5d5"/>
+      <stop id="escentier-slogan-s-text1-fill-1" offset="100%" stop-color="#787878"/>
+    </radialGradient>
+    <radialGradient id="escentier-slogan-s-text2-fill" cx="0" cy="0" r="0.105278" spreadMethod="pad" gradientUnits="objectBoundingBox" gradientTransform="matrix(1 0 0 4.614854 0.117496 0.513074)">
+      <stop id="escentier-slogan-s-text2-fill-0" offset="0%" stop-color="#fff"/>
+      <stop id="escentier-slogan-s-text2-fill-1" offset="100%" stop-color="#000"/>
+    </radialGradient>
+  </defs>
+  <g id="escentier-slogan-s-g1" clip-path="url(#escentier-slogan-u-clipping-paths)">
+    <text id="escentier-slogan-s-text1" dx="0" dy="0" font-family="&quot;escentier-slogan:::Zen Old Mincho&quot;" font-size="75" font-weight="400" transform="translate(253.174744 598.969209)" fill="url(#escentier-slogan-s-text1-fill)" stroke-width="0">
+      <tspan id="escentier-slogan-s-tspan1" y="0" font-weight="400" stroke-width="0"><![CDATA[
+映像とクリエイティブテクノロジーの融合
+]]>      </tspan>
+    </text>
+    <clipPath id="escentier-slogan-u-clipping-paths">
+      <rect id="escentier-slogan-s-rect1" width="1477.03204" height="122.023609" rx="0" ry="0" transform="translate(-1230.05059 499.021923)" fill="#d2dbed" stroke-width="0"/>
+    </clipPath>
+  </g>
+  <text id="escentier-slogan-s-text2" dx="0" dy="0" font-family="&quot;escentier-slogan:::Zen Old Mincho&quot;" font-size="75" font-weight="400" transform="translate(663.803711 456.159936)" opacity="0" fill="url(#escentier-slogan-s-text2-fill)" stroke-width="2" stroke-dasharray="0.001843">
+    <tspan id="escentier-slogan-s-tspan2" y="0" font-weight="400" stroke-width="2"><![CDATA[
+東京 から 世界 へ
+]]>    </tspan>
+  </text>
+  <script><![CDATA[
+(function(s,i,u,o,c,w,d,t,n,x,e,p,a,b){(a=Array.from(d.querySelectorAll('svg#' + i.root)).filter(n=> !n.svgatorPlayer)[0]||{}).svgatorPlayer={ready:(function(a){b=[];return function(c){return c?(b.push(c),a.svgatorPlayer):b}})(a)};w[o]=w[o]||{};w[o][s]=w[o][s]||[];w[o][s].push(i);e=d.createElementNS(n,t);e.async=true;e.setAttributeNS(x,'href',[u,s,'.','j','s','?','v','=',c].join(''));e.setAttributeNS(null,'src',[u,s,'.','j','s','?','v','=',c].join(''));p=d.getElementsByTagName(t)[0];p.parentNode.insertBefore(e,p);})('91c80d77',{"root":"escentier-slogan","version":"2022-05-04","animations":[{"elements":{"escentier-slogan-s-rect1":{"transform":{"data":{"t":{"x":-738.51602,"y":-61.011804}},"keys":{"o":[{"t":900,"v":{"x":-491.53457,"y":560.033727,"type":"corner"},"e":[0.25,1,0.25,1]},{"t":4000,"v":{"x":960,"y":567.318729,"type":"corner"}}]}}},"escentier-slogan-s-text2":{"opacity":[{"t":0,"v":0},{"t":300,"v":1}],"fill":[{"t":300,"v":{"t":"g","s":[{"c":{"r":255,"g":255,"b":255,"a":1},"o":0},{"c":{"r":0,"g":0,"b":0,"a":1},"o":1}],"r":"escentier-slogan-s-text2-fill","gt":[1,0,0,4.614854,0.117496,0.513074],"c":{"x":0,"y":0},"rd":0.105278},"e":[0.455,-0.2,0.31,0.525]},{"t":1600,"v":{"t":"g","s":[{"c":{"r":255,"g":255,"b":255,"a":1},"o":0},{"c":{"r":0,"g":0,"b":0,"a":1},"o":1}],"r":"escentier-slogan-s-text2-fill","gt":[1,0,0,1.459973,0.562817,0.596408],"c":{"x":0,"y":0},"rd":1.891886}}]}},"s":"MDPA1ZDk0TTNiNV2Q4ZThiUjdhLOGRLODI4ODgC3M2I1MzRkNTTA0OUU0OTQ1MN2I3ZDgyOGJXCN2U3YzhkODIN4OEVQODczYjVUzNGE0NTNiOIDJUOGQ3ZThiJN2E4ZDgyODgB4NzhjRTNiNTTM0YTQ1M2I3ZPlk4Mjg1ODVBXSjNiNTM0YTQT1M2I3YTg1OGJQ3ZThiQzg3NO2E4ZE43ZTNiVNTM3ZjdhODUO4YzdlNDUzYjBhjODlEN2U3ZLVc3ZDNiSDUzJUzRhVzQ1M2IM3Zjg5OGMzYjRUzNGE0OVM0OITk2"}],"options":"MDPAxZjk0M2I4YOzhkN2E4Ylc4LZDNiNTMzYjhJjN2M4Yjg4ODQU4NTNiNDUzYEjhjN2M4Yjg4DODU4NVczYjURzNGE0OTQ5OTUY/"},'https://cdn.svgator.com/ply/','__SVGATOR_PLAYER__','2022-05-04',window,document,'script','http://www.w3.org/2000/svg','http://www.w3.org/1999/xlink')
+]]>  </script>
+
+  <style><![CDATA[
+@font-face {font-family: 'escentier-slogan:::Zen Old Mincho';font-style: normal;font-weight: 400;src: url(https://fonts.gstatic.com/l/font?kit=tss0ApVaYytLwxTqcxfMyBveyYb3mxt6ujSptPvuaPErDLootcaiRsUYbHcDtOCdW05ED-2vp7TyS9MgXyj67jdgofQUT23i3wPqKEis705uy80_BYJXZkmxRYpc9nmjjxYbg89tzymf02BULZ0aXGqD0pDnsjrBMg&skey=3f1c991bc8021513&v=v11) format('truetype');}
+]]>  </style>
+</svg>
