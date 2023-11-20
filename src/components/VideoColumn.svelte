@@ -8,13 +8,15 @@
 
   $: if (videoEl) {
     videoEl.playbackRate = speed;
+    videoEl.src = isOpposite ? bgRevMoviePath : bgMoviePath;
+    videoEl.load();
+    videoEl.play();
   }
 </script>
 
 <video
   class="w-full h-full object-cover"
   bind:this={videoEl}
-  src={isOpposite ? bgRevMoviePath : bgMoviePath}
   muted
   autoplay
   playsinline
