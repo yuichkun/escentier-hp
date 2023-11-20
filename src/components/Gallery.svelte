@@ -40,11 +40,16 @@
     display: flex;
     justify-content: space-around;
     height: 100%;
-    gap: 54px;
-    transform-origin: 110% 77%;
-    transform: rotate(45deg);
   }
-  .video-wrapper {
-    height: 300vh;
+
+  @media (min-width: 1400px) {
+    .column-wrapper {
+      gap: 54px;
+      transform-origin: 110% 77%;
+      transform: rotate(45deg);
+    }
+    .video-wrapper {
+      height: 300vh;
+    }
   }
 </style>
