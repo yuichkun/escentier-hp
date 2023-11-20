@@ -1,40 +1,31 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import VideoColumn from "./VideoColumn.svelte";
-  import { fetchAndCacheVideo } from "../stores/videoCache";
 
   let alpha = 0.2;
-
-  type Work = {
-    title: string;
-    name: string;
-    file: {
-      url: string;
-    };
-  };
-
-  export let works: Work[];
 
   const onScroll = () => {
     alpha = Math.min(window.scrollY / window.innerHeight, 1);
   };
 
   $: cssVarStyles = `--alpha:${alpha}`;
-  onMount(() => {
-    works.forEach((work) => {
-      fetchAndCacheVideo(`https:${work.file.url}`).catch(console.error);
-    });
-  });
 </script>
 
 <svelte:window on:scroll={onScroll} />
 
 <div class="section" style={cssVarStyles}>
   <div class="column-wrapper">
-    <VideoColumn {works} />
-    <VideoColumn {works} isOpposite />
-    <VideoColumn {works} />
-    <VideoColumn {works} isOpposite />
+    <div class="video-wrapper">
+      <VideoColumn />
+    </div>
+    <div class="video-wrapper">
+      <VideoColumn isOpposite />
+    </div>
+    <div class="video-wrapper">
+      <VideoColumn />
+    </div>
+    <div class="video-wrapper">
+      <VideoColumn isOpposite />
+    </div>
   </div>
 </div>
 
@@ -49,6 +40,11 @@
     display: flex;
     justify-content: space-around;
     height: 100%;
-    transform: scale(1.8) rotate(45deg);
+    gap: 54px;
+    transform-origin: 110% 77%;
+    transform: rotate(45deg);
+  }
+  .video-wrapper {
+    height: 300vh;
   }
 </style>

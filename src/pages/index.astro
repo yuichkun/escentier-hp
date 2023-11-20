@@ -21,7 +21,7 @@ const works = await getWorks();
   <Background works={works} />
   <div class="relative">
     <div id="gallery-container" class="transition-all">
-      <Gallery client:only works={works} />
+      <Gallery client:only />
     </div>
     <div
       class="absolute top-0 grid h-screen w-screen content-center justify-center"
