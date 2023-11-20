@@ -6,9 +6,3 @@
     data="/escentier-slogan.svg"
   />
 </div>
-
-<style>
-  .mincho {
-    font-family: "seiwa-do-l", serif;
-  }
-</style>
